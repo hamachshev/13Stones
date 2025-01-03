@@ -84,9 +84,10 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="statistics">Statistics</string>
-    <string
-        name="player_number">Player\nNumber</string>
+    <string name="player_number">Player\nNumber</string>
     <string name="games_won">Games\nWon</string>
     <string name="percent_won">Percent\nWon</string>
+
+
 
 </resources>

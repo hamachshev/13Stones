@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.gson)
     implementation(libs.activity)
+    implementation(libs.preference)
 
 
     testImplementation(libs.junit)

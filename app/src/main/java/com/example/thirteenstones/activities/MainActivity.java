@@ -1,14 +1,15 @@
 package com.example.thirteenstones.activities;
 
-import static com.example.thirteenstones.lib.DialogUtils.showInfoDialog;
+import static androidx.preference.PreferenceManager.getDefaultSharedPreferences;
+import static com.example.thirteenstones.lib.Utils.showInfoDialog;
 import static com.example.thirteenstones.models.ThirteenStones.getGameFromJSON;
 import static com.example.thirteenstones.models.ThirteenStones.getJSONFromGame;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.thirteenstones.R;
-import com.example.thirteenstones.lib.DialogUtils;
 import com.example.thirteenstones.models.ThirteenStones;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -22,8 +23,6 @@ import androidx.core.content.ContextCompat;
 
 import android.view.View;
 
-
-import com.example.thirteenstones.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void saveOrDeleteGameInSharedPrefs() {
-/*        SharedPreferences defaultSharedPreferences = getDefaultSharedPreferences(this);
+        SharedPreferences defaultSharedPreferences = getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = defaultSharedPreferences.edit();
 
         // Save current game or remove any prior game to/from default shared preferences
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             editor.remove(mKEY_GAME);
         }
 
-        editor.apply();*/
+        editor.apply();
     }
 
     @Override
@@ -76,20 +75,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void restoreFromPreferences_SavedGameIfAutoSaveWasSetOn() {
-/*        SharedPreferences defaultSharedPreferences = getDefaultSharedPreferences(this);
+       SharedPreferences defaultSharedPreferences = getDefaultSharedPreferences(this);
         if (defaultSharedPreferences.getBoolean(mKEY_AUTO_SAVE, true)) {
             String gameString = defaultSharedPreferences.getString(mKEY_GAME, null);
             if (gameString != null) {
                 mGame = ThirteenStones.getGameFromJSON(gameString);
                 updateUI();
             }
-        }*/
+        }
     }
 
     private void restoreOrSetFromPreferences_AllAppAndGameSettings() {
-/*        SharedPreferences sp = getDefaultSharedPreferences(this);
+        SharedPreferences sp = getDefaultSharedPreferences(this);
         mUseAutoSave = sp.getBoolean(mKEY_AUTO_SAVE, true);
-        mGame.setWinnerIsLastPlayerToPick(sp.getBoolean(mKEY_WIN_ON_LAST_PICK, false));*/
+        mGame.setWinnerIsLastPlayerToPick(sp.getBoolean(mKEY_WIN_ON_LAST_PICK, false));
     }
 
     @Override
@@ -256,8 +255,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void showSettings() {
         dismissSnackBarIfShown();
-/*        Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-        settingsLauncher.launch(intent);*/
+    Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+        settingsLauncher.launch(intent);
     }
 
     ActivityResultLauncher<Intent> settingsLauncher = registerForActivityResult(
